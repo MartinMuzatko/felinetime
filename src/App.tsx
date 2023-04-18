@@ -71,10 +71,9 @@ type GeonamesTimezoneResult = {
 }
 
 const openweatherApikey = 'fb9d1af72a8b4f4709c9132e6f3755c1'
-const geonamesApikey = 'martinhappycss'
 const getLatLngFromCity = (city: string): Promise<LatLngFromCityResult[]> => fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${openweatherApikey}`).then(r => r.json())
-const getSunriseSunset = (lat: number, lng: number): Promise<SunsetSunriseResult> => fetch(`https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&formatted=0`).then(r => r.json())
-const getTimezone = (lat: number, lng: number): Promise<GeonamesTimezoneResult> => fetch(`https://api.geonames.org/timezoneJSON?lat=${lat}&lng=${lng}&username=${geonamesApikey}`).then(r => r.json())
+// const getSunriseSunset = (lat: number, lng: number): Promise<SunsetSunriseResult> => fetch(`https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&formatted=0`).then(r => r.json())
+const getTimezone = (lat: number, lng: number): Promise<GeonamesTimezoneResult> => fetch(`https://geonames-https.deno.dev?lat=${lat}&lng=${lng}`).then(r => r.json())
 
 const getSunColor = (sunrise: number, sunset: number, current: number) => {
 	if (current == sunrise) return 'bg-yellow-600 text-black'
