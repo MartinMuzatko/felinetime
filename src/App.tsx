@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, HTMLAttributes, PropsWithChildren, useState } from 'react'
+import React, { HTMLAttributes, PropsWithChildren } from 'react'
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 const queryClient = new QueryClient()
 
@@ -6,47 +6,6 @@ type TimelineProps = {
 	city: string
 } & HTMLAttributes<HTMLDivElement>
 
-const sunColorMap = new Map([
-	[0, { bg: 'bg-gray-800', text: 'text-white' }],
-	[1, { bg: 'bg-gray-800', text: 'text-white' }],
-	[2, { bg: 'bg-gray-800', text: 'text-white' }],
-	[3, { bg: 'bg-gray-800', text: 'text-white' }],
-	[4, { bg: 'bg-gray-700', text: 'text-white' }],
-	[5, { bg: 'bg-yellow-800', text: 'text-white' }],
-	[6, { bg: 'bg-yellow-700', text: 'text-white' }],
-	[7, { bg: 'bg-yellow-500', text: 'text-white' }],
-	[8, { bg: 'bg-yellow-500', text: 'text-white' }],
-	[9, { bg: 'bg-yellow-200', text: 'text-black' }],
-	[10, { bg: 'bg-yellow-200', text: 'text-black' }],
-	[11, { bg: 'bg-yellow-200', text: 'text-black' }],
-	[12, { bg: 'bg-yellow-200', text: 'text-black' }],
-	[13, { bg: 'bg-yellow-200', text: 'text-black' }],
-	[14, { bg: 'bg-yellow-200', text: 'text-black' }],
-	[15, { bg: 'bg-yellow-200', text: 'text-black' }],
-	[16, { bg: 'bg-yellow-200', text: 'text-black' }],
-	[17, { bg: 'bg-yellow-200', text: 'text-black' }],
-	[18, { bg: 'bg-yellow-500', text: 'text-white' }],
-	[19, { bg: 'bg-yellow-700', text: 'text-white' }],
-	[20, { bg: 'bg-yellow-800', text: 'text-white' }],
-	[21, { bg: 'bg-gray-800', text: 'text-white' }],
-	[22, { bg: 'bg-gray-800', text: 'text-white' }],
-	[23, { bg: 'bg-gray-800', text: 'text-white' }],
-])
-
-type SunsetSunriseResult = {
-	results: {
-		sunrise: string
-		sunset: string
-		solar_noon: string
-		day_length: string
-		civil_twilight_begin: string
-		civil_twilight_end: string
-		nautical_twilight_begin: string
-		nautical_twilight_end: string
-		astronomical_twilight_begin: string
-		astronomical_twilight_end: string
-	}
-}
 
 type LatLngFromCityResult = {
 	country: string
@@ -102,10 +61,11 @@ const Timeline: React.FC<PropsWithChildren<TimelineProps>> = (props) => {
 	if (!timezone) return <>no data available :(</>
 	const sunrise = new Date(timezone.sunrise).getUTCHours() + 2
 	const sunset = new Date(timezone.sunset).getUTCHours() + 2
-	const current = new Date(timezone.time).getUTCHours() + 2
+	const current = (new Date(timezone.time).getUTCHours() + 2) % 24
 	return <div>
 		{[...Array(hours)].map((_, i) => {
-			const hour = ((i * maxHours / hours) + timezone.dstOffset) % 24
+			const hourIndex = ((i * maxHours / hours) + timezone.dstOffset) % 24
+			const hour = hourIndex < 0 ? 24 + hourIndex : hourIndex
 			return <div key={i} className={`px-4 py-1 ${current == hour ? 'bg-green-600 text-black' : getSunColor(sunrise, sunset, hour)}`}>
 				{String(hour).padStart(2, '0')}:{String(new Date(timezone.time).getMinutes()).padStart(2, '0')}
 			</div>
@@ -132,13 +92,13 @@ function App() {
 					</div>
 					<div>
 						<div className="flex items-center m-4">
-							<img className="rounded-full mr-4 border-4 border-yellow-400 w-32" src="https://media.discordapp.net/attachments/1089248000859197640/1095393600629645362/1rwYpGee.png?width=372&height=372" alt="" />
+							<img className="rounded-full mr-4 border-4 border-yellow-400 w-32" src="https://media.discordapp.net/attachments/1093622804164919376/1098728612326277120/IMG_2329-1.png?width=585&height=585" alt="" />
 							<div>
-								<h2 className="text-3xl">Naco</h2>
-								<h3>Sidney <small>GMT+10</small></h3>
+								<h2 className="text-3xl">Jacky</h2>
+								<h3>New York <small>GMT-5</small></h3>
 							</div>
 						</div>
-						<Timeline city="Sydney" />
+						<Timeline city="New York" />
 					</div>
 				</div>
 			</QueryClientProvider>
