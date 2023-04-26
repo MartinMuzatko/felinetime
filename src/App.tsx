@@ -92,10 +92,10 @@ function App() {
 					</div>
 					<div>
 						<div className="flex items-center m-4">
-							<img className="rounded-full mr-4 border-4 border-yellow-400 w-32" src="https://media.discordapp.net/attachments/1093622804164919376/1098728612326277120/IMG_2329-1.png?width=585&height=585" alt="" />
+							<img className="rounded-full mr-4 border-4 border-yellow-400 w-32" src="https://media.discordapp.net/attachments/1094001634608173126/1100832127030923264/Screenshot_20230426_131220.jpg?width=684&height=663" alt="" />
 							<div>
-								<h2 className="text-3xl">Jacky</h2>
-								<h3>New York <small>GMT-5</small></h3>
+								<h2 className="text-3xl">Princess Luck</h2>
+								<h3>EST <small>GMT-5</small></h3>
 							</div>
 						</div>
 						<Timeline city="New York" />
