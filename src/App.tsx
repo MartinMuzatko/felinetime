@@ -85,17 +85,17 @@ function App() {
 							<img className="rounded-full mr-4 border-4 border-yellow-400 w-32" src="https://i.imgur.com/mWiIO6f.jpg" alt="" />
 							<div>
 								<h2 className="text-3xl">Misan</h2>
-								<h3>Stuttgart <small>GMT+2</small></h3>
+								<h3>Stuttgart <small>UTC+2</small></h3>
 							</div>
 						</div>
 						<Timeline city="Stuttgart" />
 					</div>
 					<div>
 						<div className="flex items-center m-4">
-							<img className="rounded-full mr-4 border-4 border-yellow-400 w-32" src="https://media.discordapp.net/attachments/1094001634608173126/1100832127030923264/Screenshot_20230426_131220.jpg?width=684&height=663" alt="" />
+							<img className="rounded-full mr-4 border-4 border-yellow-400 w-32 h-32" src="https://i.imgur.com/ppq1DY3.png" alt="" />
 							<div>
-								<h2 className="text-3xl">Princess Luck</h2>
-								<h3>EST <small>GMT-5</small></h3>
+								<h2 className="text-3xl">Cuddle Bug</h2>
+								<h3>Somewhere <small>UTC-5</small></h3>
 							</div>
 						</div>
 						<Timeline city="New York" />
