@@ -82,9 +82,9 @@ function App() {
 				<div className="flex">
 					<div>
 						<div className="flex items-center m-4">
-							<img className="rounded-full mr-4 border-4 border-yellow-400 w-32" src="https://i.imgur.com/mWiIO6f.jpg" alt="" />
+							<img className="rounded-full mr-4 border-4 border-yellow-400 w-32" src="https://i.imgur.com/EsLEv3U.png" alt="" />
 							<div>
-								<h2 className="text-3xl">Misan</h2>
+								<h2 className="text-3xl">Katonia</h2>
 								<h3>Stuttgart <small>UTC+2</small></h3>
 							</div>
 						</div>
@@ -92,9 +92,9 @@ function App() {
 					</div>
 					<div>
 						<div className="flex items-center m-4">
-							<img className="rounded-full mr-4 border-4 border-yellow-400 w-32 h-32" src="https://i.imgur.com/ppq1DY3.png" alt="" />
+							<img className="rounded-full mr-4 border-4 border-yellow-400 w-32 h-32" src="https://i.imgur.com/a18gKzH.png" alt="" />
 							<div>
-								<h2 className="text-3xl">Cuddle Bug</h2>
+								<h2 className="text-3xl">Desmond</h2>
 								<h3>Somewhere <small>UTC-5</small></h3>
 							</div>
 						</div>
